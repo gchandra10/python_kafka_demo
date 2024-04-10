@@ -14,7 +14,7 @@ consumer = KafkaConsumer(
     sasl_plain_username=username,
     sasl_plain_password=password,
     group_id="gcgroup1",
-    auto_offset_reset="latest",
+    auto_offset_reset="earliest",
 )
 
 try:

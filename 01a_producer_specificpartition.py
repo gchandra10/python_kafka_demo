@@ -33,14 +33,14 @@ try:
             # Send the joke to a specific partition, e.g., partition 0
             key = "jokeCategory".encode()  
             key = uuid.uuid4().bytes
-            producer.send("gctopic",key=key, value=joke.encode(), partition=0)
-            producer.flush()
-            print(f"Produced joke to partition 0: {joke}")
+            metadata = producer.send("gctopic",key=key, value=joke.encode()).get()
+            #producer.flush()
+            print(f"Produced joke to partition {metadata.partition} : {joke}")
         else:
             print("No joke to send.")
         
         # Wait for some time before fetching the next joke
-        time.sleep(5)  # Sleep for 5 seconds; adjust as needed
+        time.sleep(2)  # Sleep for 2 seconds; adjust as needed
 
 except KeyboardInterrupt:
     print("Terminating the producer.")
