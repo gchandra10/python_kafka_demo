@@ -10,14 +10,14 @@ if len(sys.argv) < 2:
 # The message to send is the first command line argument
 message = sys.argv[1].encode()  # Encoding to bytes as KafkaProducer expects byte strings
 
-username, password = get_credentials()
+username, password, broker = get_credentials()
 
 ## SCRAM (Salted Challenge Response Authentication Mechanism) is an authentication protocol
-## SASL (Simple Authentication and Security Layer) is a framework that provides a mechanism for 
-# adding authentication support to connection-based protocols. 
+## SASL (Simple Authentication and Security Layer) is a framework that provides a mechanism for
+# adding authentication support to connection-based protocols.
 
 producer = KafkaProducer(
-    bootstrap_servers="helping-hen-9837-us1-kafka.upstash.io:9092",
+    bootstrap_servers=broker,
     sasl_mechanism="SCRAM-SHA-256",
     security_protocol="SASL_SSL",
     sasl_plain_username=username,
@@ -26,6 +26,10 @@ producer = KafkaProducer(
 
 try:
     producer.send("gctopic", message)
+
+    # Forces all buffered messages to be sent to the Kafka broker immediately
+    # As a best practice its good to call flush() before calling the close()
+
     producer.flush()
 
 except Exception as e:

@@ -18,4 +18,5 @@ def get_credentials():
     return (
         config["kafka_credentials"]["sasl_plain_username"],
         config["kafka_credentials"]["sasl_plain_password"],
+        config["kafka_credentials"]["broker"],
     )

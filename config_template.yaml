@@ -1,0 +1,4 @@
+kafka_credentials:
+  sasl_plain_username: ''
+  sasl_plain_password: ''
+  broker: ''
