@@ -1,5 +1,5 @@
 import sys
-import time
+import time, json
 import requests
 from kafka import KafkaProducer
 from kafka_config import get_credentials
@@ -12,7 +12,7 @@ def fetch_joke():
         response.raise_for_status()  # Raises stored HTTPError, if one occurred.
         joke = response.json()
         # return f"{joke['setup']} - {joke['punchline']}"
-        return joke
+        return json.dumps(joke)
     except requests.RequestException as e:
         print(f"Error fetching joke: {e}")
         return None

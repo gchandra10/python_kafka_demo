@@ -14,7 +14,7 @@ consumer = KafkaConsumer(
     security_protocol="SASL_SSL",
     sasl_plain_username=username,
     sasl_plain_password=password,
-    group_id="gcgroup18",
+    group_id="gcgroup1",
     auto_offset_reset="earliest",
 )
 

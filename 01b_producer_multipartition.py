@@ -30,7 +30,7 @@ producer = KafkaProducer(
 try:
     while True:  # Loop indefinitely
         joke = fetch_joke()
-        print(joke)
+        #print(joke)
         if joke:
 
             # Key can be a single hard coded value

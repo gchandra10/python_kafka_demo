@@ -6,9 +6,7 @@ https://kafka-python.readthedocs.io/en/master/usage.html
 
 ## Install the Python Library
 
-#### pip install git+https://github.com/dpkp/kafka-python.git
-or
-#### pip3 install git+https://github.com/dpkp/kafka-python.git
+#### poetry add git+https://github.com/dpkp/kafka-python.git
 
 ## Create a FREE account for Kafka
 
@@ -19,25 +17,22 @@ Goto Kafka & Deploy a Cluster and create 2 topics
 gctopic - 1 partition
 gctopic_m - 2 partitions
 
-## Usage
+## Simple Example.
 
-### Simple Example.
+- poetry run 01_producer_simple.py message
+- poetry run 02_consumer_simple_autocommit.py
 
-#### python3 01_producer_simple.py message
-#### python3 02_consumer_simple_autocommit.py
+## Read from an API and push it to Kafka
 
-### Read from an API and push it to Kafka
+- poetry run 01a_producer_api_json.py
+- poetry run 02_consumer_simple_autocommit.py
 
-#### python3 01a_producer_api_json.py
-#### python3 02_consumer.py
+## Read from an API and push it to Kafka multiple partitions
 
-### Read from an API and push it to Kafka multiple partitions
+- poetry run 01b_producer_multipartition.py
+- poetry run 02_consumer_simple_autocommit.py
 
-#### python3 01b_producer_multipartition.py
-#### python3 02_consumer.py
+## Read from an API and stream in Batch
 
-### Read from an API and stream in Batch
-
-#### python3 01c_producer_batch.py
-#### python3 02c_consumer_batch.py
-
+- poetry run 01c_producer_batch.py
+- poetry run 02c_consumer_batch.py
