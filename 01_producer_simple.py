@@ -17,11 +17,11 @@ username, password, broker = get_credentials()
 # adding authentication support to connection-based protocols.
 
 producer = KafkaProducer(
-    bootstrap_servers=broker,
-    sasl_mechanism="SCRAM-SHA-256",
-    security_protocol="SASL_SSL",
-    sasl_plain_username=username,
-    sasl_plain_password=password,
+    bootstrap_servers=broker
+    # sasl_mechanism="SCRAM-SHA-256",
+    # security_protocol="SASL_SSL",
+    # sasl_plain_username=username,
+    # sasl_plain_password=password,
 )
 
 try:

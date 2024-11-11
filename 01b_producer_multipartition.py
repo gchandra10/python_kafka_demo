@@ -21,10 +21,10 @@ username, password, broker = get_credentials()
 
 producer = KafkaProducer(
     bootstrap_servers=broker,
-    sasl_mechanism="SCRAM-SHA-256",
-    security_protocol="SASL_SSL",
-    sasl_plain_username=username,
-    sasl_plain_password=password,
+    # sasl_mechanism="SCRAM-SHA-256",
+    # security_protocol="SASL_SSL",
+    # sasl_plain_username=username,
+    # sasl_plain_password=password,
 )
 
 try:
@@ -43,7 +43,7 @@ try:
             # metadata = producer.send("gctopic",key=key, value=joke.encode(), partition=0).get()
 
             ## Sends messages to available partitions randomly
-            metadata = producer.send("gctopic_m", key=key, value=joke.encode()).get()
+            metadata = producer.send("gctopic", key=key, value=joke.encode()).get()
 
             # producer.flush()
             print(f"Produced joke to partition {metadata.partition} : {joke}")

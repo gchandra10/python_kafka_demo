@@ -21,10 +21,10 @@ username, password, broker = get_credentials()
 
 producer = KafkaProducer(
     bootstrap_servers=broker,
-    sasl_mechanism="SCRAM-SHA-256",
-    security_protocol="SASL_SSL",
-    sasl_plain_username=username,
-    sasl_plain_password=password,
+    # sasl_mechanism="SCRAM-SHA-256",
+    # security_protocol="SASL_SSL",
+    # sasl_plain_username=username,
+    # sasl_plain_password=password,
     batch_size=16384, ##16KB
     linger_ms=10000 #wait upto 10 seconds to batch messages 10x1000 milli
 )

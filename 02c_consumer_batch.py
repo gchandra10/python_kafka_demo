@@ -10,16 +10,16 @@ username, password, broker = get_credentials()
 # Consumer does a Auto Commit.
 consumer = KafkaConsumer(
     bootstrap_servers=broker,
-    sasl_mechanism="SCRAM-SHA-256",
-    security_protocol="SASL_SSL",
-    sasl_plain_username=username,
-    sasl_plain_password=password,
+    # sasl_mechanism="SCRAM-SHA-256",
+    # security_protocol="SASL_SSL",
+    # sasl_plain_username=username,
+    # sasl_plain_password=password,
     group_id="gcgroup18",
     auto_offset_reset="earliest",
 )
 
 # Change the topicname if needed
-consumer.subscribe(["gctopic", "gctopic_m"])
+consumer.subscribe(["gctopic"])
 
 try:
     while True:
