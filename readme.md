@@ -12,6 +12,11 @@ poetry add git+https://github.com/dpkp/kafka-python.git
 
 [Configure Kafka via Docker](https://bigdatabook.gchandra.com/chapter_08/kafka/kafka-software.html)
 
+```
+Make sure docker_compose.yaml is available 
+podman-compose up -d
+```
+
 ## Simple Example.
 
 ```
