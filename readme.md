@@ -29,7 +29,6 @@ poetry run python 02_consumer_simple_autocommit.py
 
 ```
 poetry run python 01a_producer_api_json.py
-
 poetry run python 02_consumer_simple_autocommit.py
 ```
 

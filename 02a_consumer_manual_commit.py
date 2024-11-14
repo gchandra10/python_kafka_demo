@@ -47,6 +47,7 @@ try:
 
         # Read the message and convert it to String
         message_str = message.value.decode("utf-8")
+        print(message_str)
         message_dict = json.loads(message_str)
 
         # Accessing the partition number directly
